@@ -87,7 +87,7 @@ def mute(update: Update, context: CallbackContext) -> str:
         )
         if reason:
             reply += f"\n<code> </code><b>•  Reason:</b> {html.escape(reason)}"
-        bot.sendMessage(chat.id, reply, parse_mode=ParseMode.HTML, quote=False)
+        bot.sendMessage(chat.id, reply, parse_mode=ParseMode.HTML)
         return log
 
     else:
@@ -218,7 +218,7 @@ def temp_mute(update: Update, context: CallbackContext) -> str:
             )
             if reason:
                 reply += f"\n<code> </code><b>•  Reason:</b> {html.escape(reason)}"
-            bot.sendMessage(chat.id, reply, parse_mode=ParseMode.HTML, quote=False)
+            bot.sendMessage(chat.id, reply, parse_mode=ParseMode.HTML)
             return log
         else:
             message.reply_text("This user is already muted.")
