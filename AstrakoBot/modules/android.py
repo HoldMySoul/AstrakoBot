@@ -42,7 +42,9 @@ def orangefox(update: Update, context: CallbackContext):
     bot, args = context.bot, context.args
     message = update.effective_message
     device = args[0]
-    link = get(f"https://api.orangefox.download/v3/releases/?codename={device}&sort=date_desc&limit=1")
+    link = get(
+        f"https://api.orangefox.download/v3/releases/?codename={device}&sort=date_desc&limit=1"
+    )
 
     if link.status_code == 404:
         message = f"OrangeFox currently is not avaliable for {device}"

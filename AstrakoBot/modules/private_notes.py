@@ -27,7 +27,8 @@ def privatenotes(update: Update, context: CallbackContext):
     if len(args) == 0:
         setting = getprivatenotes(chat_id)
         send_message(
-            update.effective_message, "Private notes value is {} in *{}*.".format(setting, chat_name),
+            update.effective_message,
+            "Private notes value is {} in *{}*.".format(setting, chat_name),
             parse_mode=ParseMode.MARKDOWN,
         )
 
@@ -36,28 +37,28 @@ def privatenotes(update: Update, context: CallbackContext):
         if val in ["off", "no", "0", "disable", "false"]:
             setprivatenotes(chat_id, False)
             send_message(
-                update.effective_message, "Private notes has been disabled in *{}*".format(chat_name),
+                update.effective_message,
+                "Private notes has been disabled in *{}*".format(chat_name),
                 parse_mode=ParseMode.MARKDOWN,
             )
         elif val in ["on", "yes", "1", "enable", "true"]:
             setprivatenotes(chat_id, True)
             send_message(
-                update.effective_message, "Private notes has been enabled in *{}*".format(chat_name),
+                update.effective_message,
+                "Private notes has been enabled in *{}*".format(chat_name),
                 parse_mode=ParseMode.MARKDOWN,
             )
-        else: 
-            send_message(
-                update.effective_message, "Sorry, wrong value"
-            )
+        else:
+            send_message(update.effective_message, "Sorry, wrong value")
+
 
 def setprivatenotes(chat_id, setting):
     sql.set_private_notes(chat_id, setting)
-            
+
 
 def getprivatenotes(chat_id):
     setting = sql.get_private_notes(chat_id)
     return setting
-
 
 
 PRIVATENOTES_HANDLER = CommandHandler("privatenotes", privatenotes, run_async=True)

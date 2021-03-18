@@ -230,8 +230,12 @@ FETCH_HANDLER = DisableAbleCommandHandler(
 )
 SAVEREPO_HANDLER = CommandHandler("saverepo", saveRepo, run_async=True)
 DELREPO_HANDLER = CommandHandler("delrepo", delRepo, run_async=True)
-LISTREPO_HANDLER = DisableAbleCommandHandler("listrepo", listRepo, admin_ok=True, run_async=True)
-VERCHECKER_HANDLER = DisableAbleCommandHandler("gitver", getVer, admin_ok=True, run_async=True)
+LISTREPO_HANDLER = DisableAbleCommandHandler(
+    "listrepo", listRepo, admin_ok=True, run_async=True
+)
+VERCHECKER_HANDLER = DisableAbleCommandHandler(
+    "gitver", getVer, admin_ok=True, run_async=True
+)
 CHANGELOG_HANDLER = DisableAbleCommandHandler(
     "changelog", changelog, admin_ok=True, run_async=True
 )

@@ -474,10 +474,16 @@ __help__ = """
 
 ADMINLIST_HANDLER = DisableAbleCommandHandler("admins", adminlist, run_async=True)
 
-PIN_HANDLER = CommandHandler("pin", pin, filters=Filters.chat_type.groups, run_async=True)
-UNPIN_HANDLER = CommandHandler("unpin", unpin, filters=Filters.chat_type.groups, run_async=True)
+PIN_HANDLER = CommandHandler(
+    "pin", pin, filters=Filters.chat_type.groups, run_async=True
+)
+UNPIN_HANDLER = CommandHandler(
+    "unpin", unpin, filters=Filters.chat_type.groups, run_async=True
+)
 
-INVITE_HANDLER = DisableAbleCommandHandler(["invitelink", "link"], invite, run_async=True)
+INVITE_HANDLER = DisableAbleCommandHandler(
+    ["invitelink", "link"], invite, run_async=True
+)
 
 PROMOTE_HANDLER = DisableAbleCommandHandler("promote", promote, run_async=True)
 DEMOTE_HANDLER = DisableAbleCommandHandler("demote", demote, run_async=True)

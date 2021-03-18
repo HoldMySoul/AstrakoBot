@@ -36,6 +36,7 @@ UNBAN_RIGHTS = ChatBannedRights(
 
 OFFICERS = [OWNER_ID] + DEV_USERS + DRAGONS + DEMONS
 
+
 @telethn.on(events.NewMessage(pattern=f"^[!/]zombies ?(.*)"))
 async def zombies(event):
     # Here laying the sanity check
@@ -44,9 +45,7 @@ async def zombies(event):
     creator = chat.creator
 
     # Well
-    if not await user_is_admin(
-        user_id=event.sender_id, message=event
-    ):
+    if not await user_is_admin(user_id=event.sender_id, message=event):
         await event.reply("Only Admins are allowed to use this command")
         return
 
